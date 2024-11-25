@@ -1,3 +1,4 @@
+using DevFreela.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.API.Controllers;
@@ -13,7 +14,7 @@ public class SkillsController : ControllerBase
        }
 
        [HttpPost]
-       public IActionResult Post()
+       public IActionResult Post(CreateSkillInputModel model)
        {
               return Ok();
        }
