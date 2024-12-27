@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using DevFreela.Core.Enums;
 
 namespace DevFreela.Core.Entities;
@@ -25,6 +26,7 @@ public class Project : BaseEntity
     public User Client { get; private set; }
     public int IdFreelancer { get; private set; }
     public User Freelancer { get; private set; }
+    [Column(TypeName = "decimal(10,2)")]
     public decimal TotalCost { get; private set; }
     public DateTime? StartedAt { get; private set; }
     public DateTime? CompletedAt { get; private set; }
