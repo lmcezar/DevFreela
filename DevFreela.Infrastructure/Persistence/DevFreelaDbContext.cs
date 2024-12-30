@@ -43,6 +43,11 @@ public class DevFreelaDbContext : DbContext
                 .WithMany(p => p.Comments)
                 .HasForeignKey(p => p.IdProject)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            e.HasOne(p => p.User)
+                .WithMany(u => u.Comments)
+                .HasForeignKey(p => p.IdUser)
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         builder.Entity<User>(e =>
@@ -60,14 +65,14 @@ public class DevFreelaDbContext : DbContext
             e.HasKey(p => p.Id);
 
             e.HasOne(p => p.Freelancer)
-                .WithMany(f => f.FreelanceProjects)
-                .HasForeignKey(p => p.IdFreelancer)
-                .OnDelete(DeleteBehavior.Restrict);
-            
-            e.HasOne(p => p.Client)
-                .WithMany(c => c.OwnedProjects)
-                .HasForeignKey(p => p.IdClient)
-                .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany(f => f.FreelanceProjects)
+                        .HasForeignKey(p => p.IdFreelancer)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    e.HasOne(p => p.Client)
+                        .WithMany(c => c.OwnedProjects)
+                        .HasForeignKey(p => p.IdClient)
+                        .OnDelete(DeleteBehavior.Restrict);
         });
         
         base.OnModelCreating(builder);

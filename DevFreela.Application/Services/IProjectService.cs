@@ -5,7 +5,7 @@ namespace DevFreela.Application.Services;
 
 public interface IProjectService
 {
-    ResultViewModel<List<ProjectItemViewModel>> GetAll(string search = "");
+    ResultViewModel<List<ProjectItemViewModel>> GetAll(int page, int pageSize, string search = "");
     ResultViewModel<ProjectViewModel> GetById(int id);
     ResultViewModel<int> Insert(CreateProjectInputModel model);
     ResultViewModel Update(UpdateProjectInputModel model);

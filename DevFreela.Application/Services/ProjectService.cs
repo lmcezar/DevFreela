@@ -14,7 +14,7 @@ public class ProjectService : IProjectService
         _context = context;
     }
     
-    public ResultViewModel<List<ProjectItemViewModel>> GetAll(string search = "", int page = 0, int size = 1)
+    public ResultViewModel<List<ProjectItemViewModel>> GetAll(int page = 0, int size = 1, string search = "")
     {
         var projects = _context.Projects
             .Include(p => p.Client)
@@ -30,10 +30,7 @@ public class ProjectService : IProjectService
         return ResultViewModel<List<ProjectItemViewModel>>.Success(model);
     }
 
-    public ResultViewModel<List<ProjectItemViewModel>> GetAll(string search = "")
-    {
-        throw new NotImplementedException();
-    }
+
 
     public ResultViewModel<ProjectViewModel> GetById(int id)
     {
