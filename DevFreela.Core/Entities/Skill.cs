@@ -6,6 +6,7 @@ public class Skill : BaseEntity
         : base()
     {
         Description = description;
+        UserSkills = [];
     }
 
     public string Description { get; private set; }
